@@ -1,0 +1,101 @@
+Source: libcryptui
+Section: gnome
+Priority: optional
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: @GNOME_TEAM@
+Build-Depends: debhelper (>= 11),
+               gnome-pkg-tools,
+               gsettings-desktop-schemas-dev,
+               libgpgme-dev (>= 1.0.0),
+               intltool (>= 0.35),
+               libdbus-glib-1-dev (>= 0.35),
+               gtk-doc-tools (>= 1.9),
+               libgcr-3-dev,
+               libglib2.0-dev (>= 2.32.0),
+               libgtk-3-dev (>= 3.0.0),
+               libnotify-dev (>= 0.7),
+               libsm-dev,
+               libice-dev,
+               gobject-introspection (>= 0.6.4),
+               libgirepository1.0-dev (>= 0.6.4),
+               libgtk-3-doc,
+               libglib2.0-doc
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/gnome-team/libcryptui
+Vcs-Git: https://salsa.debian.org/gnome-team/libcryptui.git
+Homepage: http://developer.gnome.org/libcryptui/
+
+Package: seahorse-daemon
+Architecture: any
+Multi-Arch: foreign
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         gnupg (>= 1.4.7)
+Recommends: seahorse
+Description: Seahorse pass phrase caching agent
+ This is the agent program for seahorse which keeps a temporary secure
+ storage of your pass phrases.
+ .
+ Seahorse is a front end for GnuPG - the GNU Privacy Guard program -
+ that integrates to the GNOME desktop. It is a tool for secure
+ communications and data storage.  Data encryption and digital signature
+ creation can easily be performed through a GUI and Key Management
+ operations can easily be carried out through an intuitive interface.
+
+Package: libcryptui0a
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         seahorse-daemon (= ${binary:Version})
+Description: UI library for OpenPGP prompts
+ CryptUI is a library to manage OpenPGP prompts on GUI applications.
+ .
+ This package contains the shared library needed to run programs built
+ against the CryptUI library.
+
+Package: libcryptui-dev
+Architecture: any
+Multi-Arch: same
+Section: libdevel
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         libdbus-glib-1-dev (>= 0.35),
+         libglib2.0-dev (>= 2.32.0),
+         libgtk-3-dev (>= 3.0.0),
+         libcryptui0a (= ${binary:Version}),
+         gir1.2-cryptui-0.0 (= ${binary:Version})
+Suggests: libcryptui-doc
+Description: UI library for OpenPGP prompts (development)
+ CryptUI is a library to manage OpenPGP prompts on GUI applications.
+ .
+ This package contains the development files and documentation needed to
+ build applications using the CryptUI library.
+
+Package: libcryptui-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${misc:Depends}
+Recommends: libgtk-3-doc
+Suggests: devhelp
+Description: UI library for OpenPGP prompts (documentation)
+ CryptUI is a library to manage OpenPGP prompts on GUI applications.
+ .
+ This package contains the HTML documentation and API reference for the
+ CryptUI library.
+
+Package: gir1.2-cryptui-0.0
+Architecture: any
+Multi-Arch: same
+Section: introspection
+Depends: ${gir:Depends},
+         ${misc:Depends}
+Description: GObject introspection data for the CryptUI library
+ CryptUI is a library to manage OpenPGP prompts on GUI applications.
+ .
+ This package contains introspection data for the CryptUI library.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
