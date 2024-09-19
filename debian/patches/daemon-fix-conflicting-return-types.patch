@@ -1,4 +1,3 @@
-From 4b62178d9b89fb5c62dc2b81bdfd52d6c50ff85b Mon Sep 17 00:00:00 2001
 From: Andreas Henriksson <andreas@fatal.se>
 Date: Mon, 15 Aug 2016 18:12:06 +0200
 Subject: [PATCH] daemon: fix conflicting return types
@@ -15,7 +14,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=769943
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/daemon/seahorse-daemon.h b/daemon/seahorse-daemon.h
-index 93c0c452..09716bb5 100644
+index 93c0c45..09716bb 100644
 --- a/daemon/seahorse-daemon.h
 +++ b/daemon/seahorse-daemon.h
 @@ -24,9 +24,9 @@
@@ -30,6 +29,3 @@ index 93c0c452..09716bb5 100644
  
  DBusGConnection*    seahorse_dbus_server_get_connection ();
  
--- 
-2.13.2
-

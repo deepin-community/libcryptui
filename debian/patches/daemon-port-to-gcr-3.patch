@@ -1,4 +1,3 @@
-From c48dffa09dc3f0484e9e37965f1a6ba0d326e80c Mon Sep 17 00:00:00 2001
 From: Marc-Antoine Perennou <Marc-Antoine@Perennou.com>
 Date: Fri, 16 Sep 2016 11:46:55 +0200
 Subject: [PATCH] daemon: port to gcr-3
@@ -19,7 +18,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=771522
  3 files changed, 22 insertions(+), 20 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index 406b9f3f..0115a4e0 100644
+index 01dd88c..5482b64 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -252,18 +252,18 @@ if test "$enable_fatal_messages" = "yes" && test "$enable_debug" = "yes"; then
@@ -49,7 +48,7 @@ index 406b9f3f..0115a4e0 100644
  dnl ****************************************************************************
  dnl LIBCRYPTUI
 diff --git a/daemon/seahorse-secure-buffer.c b/daemon/seahorse-secure-buffer.c
-index 9d6e87bb..c63749ac 100644
+index 9d6e87b..c63749a 100644
 --- a/daemon/seahorse-secure-buffer.c
 +++ b/daemon/seahorse-secure-buffer.c
 @@ -20,7 +20,8 @@
@@ -81,7 +80,7 @@ index 9d6e87bb..c63749ac 100644
  		pv->text_bytes = pv->text_size = 0;
  		pv->text_chars = 0;
 diff --git a/daemon/seahorse-secure-memory.c b/daemon/seahorse-secure-memory.c
-index 3d94a674..f201d1df 100644
+index 3d94a67..f201d1d 100644
 --- a/daemon/seahorse-secure-memory.c
 +++ b/daemon/seahorse-secure-memory.c
 @@ -23,7 +23,8 @@
@@ -150,6 +149,3 @@ index 3d94a674..f201d1df 100644
          return TRUE;
      }
  
--- 
-2.13.2
-
