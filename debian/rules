@@ -1,10 +1,11 @@
 #!/usr/bin/make -f
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
 
 %:
-	dh $@ --with gir,gnome
+	dh $@
 
 override_dh_autoreconf:
 	gtkdocize
@@ -15,13 +16,6 @@ override_dh_auto_configure:
 		--disable-update-mime-database \
 		--enable-gtk-doc
 
-override_dh_install:
-	find debian/tmp -name '*.a' -print -delete
-	find debian/tmp -name '*.la' -print -delete
-	dh_install
-
-override_dh_missing:
-	dh_missing --fail-missing
-
-override_dh_makeshlibs:
-	dh_makeshlibs -- -c4
+execute_before_dh_install:
+	find debian -name '*.a' -print -delete
+	find debian -name '*.la' -print -delete

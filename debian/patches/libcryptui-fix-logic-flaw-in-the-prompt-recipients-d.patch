@@ -1,4 +1,3 @@
-From a13e5dabd09f0c3f39c1ae42eedf3c1d16f723a8 Mon Sep 17 00:00:00 2001
 From: Vlad Orlov <monsta@inbox.ru>
 Date: Mon, 15 Aug 2016 18:23:31 +0200
 Subject: [PATCH] libcryptui: fix logic flaw in the prompt recipients dialog
@@ -21,7 +20,7 @@ Reviewed-by: Stef Walter <stefw@gnome.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/libcryptui/cryptui.c b/libcryptui/cryptui.c
-index 92f0d5d4..2bbfa409 100644
+index 92f0d5d..2bbfa40 100644
 --- a/libcryptui/cryptui.c
 +++ b/libcryptui/cryptui.c
 @@ -211,7 +211,7 @@ cryptui_prompt_recipients_with_symmetric (CryptUIKeyset *keyset,
@@ -33,6 +32,3 @@ index 92f0d5d4..2bbfa409 100644
              recipients = cryptui_key_chooser_get_recipients (chooser);
              keys = g_new0(gchar*, g_list_length (recipients) + 1);
              for (l = recipients, i = 0; l; l = g_list_next (l), i++)
--- 
-2.13.2
-
